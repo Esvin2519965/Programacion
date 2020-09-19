@@ -1,0 +1,48 @@
+Private Sub Igual_Click()
+Select Case signo 'la variable signo te dice si sumas(0) si restas(1)......
+Case 0
+Text1.Text = suma(anterior, Val(Text1.Text)) 'llamada a la función suma
+Case 1
+Text1.Text = resta(anterior, Val(Text1.Text))
+
+Case 2
+Text1.Text = multiplicar(anterior, Val(Text1.Text))
+Case 3
+Text1.Text = Dividir(anterior, Val(Text1.Text))
+End Select
+End Sub
+
+Private Sub Nueva_Click()
+Text1.Text = ""
+End Sub
+
+Private Sub Operador_Click(Index As Integer)
+signo = Index 'si index es 0 sumas, si es 1 restas......
+anterior = Val(Text1.Text)
+Text1.Text = ""
+
+End Sub
+
+Private Sub Numero_Click(Index As Integer)
+Text1.Text = Text1.Text + Numero(Index).Caption
+End Sub
+
+Private Function suma(Numero As Integer, Operador As Integer) As Integer
+suma = Numero + Operador
+End Function
+
+Private Function resta(Numero As Integer, Operador As Integer) As Integer
+resta = Numero - Operador
+End Function
+
+Private Function multiplicar(Numero As Integer, Operador As Integer) As Integer
+multiplicar = Numero * Operador
+End Function
+
+Private Function Dividir(Numero As Integer, Operador As Integer) As Integer
+Dividir = Numero / Operador
+End Function
+
+Private Sub Salir_Click()
+Unload Me
+End Sub
